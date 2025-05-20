@@ -3,9 +3,15 @@ using Reqnroll;
 [Binding]
 public class Hooks
 {
-    [BeforeTestRun]
-    public static void BeforeRun() => Console.WriteLine("Starting API Tests...");
+    [BeforeScenario]
+    public void BeforeScenario()
+    {
+        Console.WriteLine($"-- Starting Scenario: {ScenarioContext.Current.ScenarioInfo.Title}");
+    }
 
-    [AfterTestRun]
-    public static void AfterRun() => Console.WriteLine("API Tests completed.");
+    [AfterScenario]
+    public void AfterScenario()
+    {
+        Console.WriteLine("-- Finished Scenario");
+    }
 }

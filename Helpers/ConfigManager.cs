@@ -9,9 +9,8 @@ public static class ConfigManager
         
         _config = new ConfigurationBuilder()
             .AddJsonFile("testsettings.json")
-            .AddEnvironmentVariables()
             .Build();
     }
 
-    public static string Get(string key) => _config[key];
+    public static string get(string key) => _config[key];
 }

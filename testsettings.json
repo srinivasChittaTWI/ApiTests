@@ -1,5 +1,9 @@
 {
-  "Environment": "dev",
-  "ApiBaseUrl": "https://api.example.com",
-  "DbConnection": "Server=...;Database=...;User Id=...;Password=...;"
+  "BaseUrl": "https://jsonplaceholder.typicode.com",
+  "Auth": {
+    "UseAuth": false,
+    "TokenUrl": "https://example.com/token",
+    "ClientId": "your-client-id",
+    "ClientSecret": "your-client-secret"
+  }
 }

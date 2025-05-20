@@ -1,11 +1,13 @@
 using Reqnroll;
 using System.Net.Http.Json;
+using ApiTests.Helpers;
 
 [Binding]
 public class LoginSteps
 {
-    private HttpResponseMessage _response;
-    private object _payload;
+    private readonly HttpClientFactory _apiClient = new();
+    private HttpResponseMessage? _response;
+    private object? _payload;
 
     [Given(@"I have a valid login payload")]
     public void GivenIHaveAValidLoginPayload()
@@ -14,10 +16,10 @@ public class LoginSteps
     }
 
     [When(@"I send a POST request to ""(.*)""")]
-    public async Task WhenISendAPOSTRequestTo(string endpoint)
+    public async Task WhenISendAPostRequestTo(string endpoint)
     {
-        var client = CustomHttpClientFactory.Create();
-        _response = await client.PostAsJsonAsync(endpoint, _payload);
+
+        _response = await _apiClient.PostAsync("", _payload);
     }
 
     [Then(@"the response code should be (\d+)")]
