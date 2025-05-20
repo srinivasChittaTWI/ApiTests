@@ -130,12 +130,20 @@ namespace ApiTests.Features
         [Xunit.SkippableFactAttribute(DisplayName="Valid login")]
         [Xunit.TraitAttribute("FeatureTitle", "User Login")]
         [Xunit.TraitAttribute("Description", "Valid login")]
+        [Xunit.TraitAttribute("Category", "API")]
+        [Xunit.TraitAttribute("Category", "LOGIN")]
+        [Xunit.TraitAttribute("Category", "owner:feeds")]
+        [Xunit.TraitAttribute("Category", "critical")]
         public async global::System.Threading.Tasks.Task ValidLogin()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "API",
+                    "LOGIN",
+                    "owner:feeds",
+                    "critical"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Valid login", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -145,13 +153,13 @@ namespace ApiTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
+#line 9
         await testRunner.GivenAsync("I have a valid login payload", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 5
+#line 10
         await testRunner.WhenAsync("I send a POST request to \"/login\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 6
+#line 11
         await testRunner.ThenAsync("the response code should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

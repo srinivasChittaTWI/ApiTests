@@ -1,8 +1,7 @@
 {
-  "$schema": "https://raw.githubusercontent.com/allure-framework/allure-csharp/2.12.1/Allure.Reqnroll/Schemas/allureConfig.schema.json",
   "allure": {
     "title": "5994A3F7-AF84-46AD-9393-000BB45553CC",
-    "directory": "allure-results",
+    "directory": "../../../allure-results",
     "links": [
       "https://example.org/{issue}",
       "https://example.org/{tms}"
