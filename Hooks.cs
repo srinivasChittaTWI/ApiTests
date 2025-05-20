@@ -1,11 +1,15 @@
+using Allure.Net.Commons;
 using Reqnroll;
+
+namespace ApiTests;
 
 [Binding]
 public class Hooks
 {
-    [BeforeScenario]
+    [BeforeScenario("beforescenario")]
     public void BeforeScenario()
     {
+        AllureLifecycle.Instance.CleanupResultDirectory();
         Console.WriteLine($"-- Starting Scenario: {ScenarioContext.Current.ScenarioInfo.Title}");
     }
 

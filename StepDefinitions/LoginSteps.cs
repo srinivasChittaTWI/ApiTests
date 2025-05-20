@@ -1,25 +1,29 @@
-using Reqnroll;
-using System.Net.Http.Json;
+using Allure.Net.Commons;
 using ApiTests.Helpers;
+using Reqnroll;
+using Xunit;
+
+namespace ApiTests.StepDefinitions;
 
 [Binding]
 public class LoginSteps
 {
     private readonly HttpClientFactory _apiClient = new();
-    private HttpResponseMessage? _response;
     private object? _payload;
+    private HttpResponseMessage? _response;
 
     [Given(@"I have a valid login payload")]
     public void GivenIHaveAValidLoginPayload()
     {
+        AllureApi.SetTestName("Open labels page");
         _payload = new { username = "admin", password = "secret" };
     }
 
     [When(@"I send a POST request to ""(.*)""")]
     public async Task WhenISendAPostRequestTo(string endpoint)
     {
-
         _response = await _apiClient.PostAsync("", _payload);
+        
     }
 
     [Then(@"the response code should be (\d+)")]
