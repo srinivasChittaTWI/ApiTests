@@ -5,5 +5,31 @@
     "TokenUrl": "https://example.com/token",
     "ClientId": "your-client-id",
     "ClientSecret": "your-client-secret"
+  },
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "logs/reqnroll-tests-.log",
+          "rollingInterval": "Day",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName" ]
   }
 }
