@@ -36,10 +36,10 @@ public class LoggerUtil
 
         // Create logger
         _logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(configuration)
+            /*.ReadFrom.Configuration(configuration)
             .Enrich.FromLogContext()
             .Enrich.WithProperty("Application", "Reqnroll.Tests")
-            .MinimumLevel.ControlledBy(_levelSwitch)
+            .MinimumLevel.ControlledBy(_levelSwitch)*/
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
             .WriteTo.File(
                 logFilePath,

@@ -21,6 +21,7 @@ public class Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
+            LoggerUtil.CloseAndFlush();
             _logger.Information("Starting test execution");
         }
 
